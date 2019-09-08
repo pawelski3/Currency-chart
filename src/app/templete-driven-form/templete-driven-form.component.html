@@ -1,0 +1,23 @@
+<p>templete-driven-form works!</p>
+<form (ngSubmit)="onSubmit()">
+  <div style="display:inline-grid;">
+
+    <label>Wybierz walutę
+      <select name="select1" [(ngModel)]="message.select1">
+        <option></option>
+      </select>
+    </label>
+
+    <label>Wybierz walutę
+      <select name="select2" [(ngModel)]="message.select2">
+        <option value="o1">o1</option>
+        <option value="o2">o2</option>
+      </select>
+    </label>
+
+    <label>Pokaż ceny złota
+      <input type="checkbox" name="showGold" [(ngModel)]="message.showGold">
+    </label>
+    <button type="submit">Pokaż wykres</button>
+  </div>
+</form>
