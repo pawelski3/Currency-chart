@@ -151,8 +151,8 @@ export class AppComponent implements OnInit {
             type: 'line',
             label: 'Cena 1 grama złota (pln)',
             data: this.GoldPrice,
-            backgroundColor: 'rgba(255,0,255,0.4)',
-            borderColor: 'rgba(255,0,255,0.4)',
+            backgroundColor: 'blue',
+            borderColor: 'blue',
             fill: false,
           },
         ]

@@ -1,25 +1,49 @@
 <!--The content below is only a placeholder and can be replaced.-->
+<nav class="navbar navbar-expand-sm bg-light">
 
-<h1>
+    <!-- Links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Wiadomości</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Kurs dnia</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="#">Dane makroekonomiczne</a>
+        </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Analizy</a>
+      </li>
+      <li class="nav-item active">
+          <a class="nav-link active" href="#">Wykresy</a>
+        </li>
+    </ul>
 
-  <p>Wykres kursu waluty {{curr1Name}} i złota w okresie od {{later30|date:'dd.MM.yyyy r.'}} do {{time|date:'dd.MM.yyyy r.'}} </p>
+  </nav>
 
-</h1>
+<div class="container" >
+    <div class="jumbotron">
+    <h3 style="text-align:center;color:blue;">
+  Kurs waluty {{curr1Name}} i złota w okresie od {{later30|date:'dd.MM.yyyy r.'}} do {{time|date:'dd.MM.yyyy r.'}}
 
+</h3>
 
-Wybierz walutę
-<select style="width:150px;height:30px;"  id="s1" (change)="select1(s1.value)" #s1 >
+<div class="form-group">
+<label for ="s1" >
+Wybierz walutę<select class="form-control" style="width:200px;" id="s1" (change)="select1(s1.value)" #s1 >
   <ng-container *ngFor="let p of CurrCodesandNames; let i=index;">
-      <ng-container *ngIf='p[0] === "EUR"'>
+      <ng-container *ngIf='p[0] === "EUR"; else else1'>
           <option value={{p[0]}} selected>{{p[1]}} ({{p[0]}})</option>
       </ng-container>
+
+      <ng-template #else1>
   <option value={{p[0]}}>{{p[1]}} ({{p[0]}})</option>
-
+      </ng-template>
 </ng-container>
+</select></label>
+</div>
 
-
-
-</select>&nbsp;&nbsp;
 <div class="chart-display">
   <div style="width:100%">
     <canvas id="bar"></canvas>
@@ -33,3 +57,6 @@ Wybierz walutę
 
 
 </div>
+</div>
+</div>
+
